@@ -1,0 +1,32 @@
+Theorem "Model/Distance-Lemma_Proof"
+Definitions
+  /* The disntance between cop and robber */
+  /* strictly decreasing over time t*/
+  Real d(Real t);
+End.
+
+ProgramVariables
+    Real xC;  /* cop x-position */
+    Real yC;  /* cop y-position */
+    Real xR;  /* robber x-position */
+    Real yR;  /* robber y-position */
+    Real xC1; /* cop x-speed */
+    Real yC1; /* cop y-speed */
+    Real xR1; /* robber x-speed */
+    Real yR1; /* robber y-speed */
+    Real t;
+
+    Real dx;
+    Real d0;
+End.
+
+Problem
+  (\forall t_1 (t_1>=0 -> (\forall t_2 (t_2>=0 -> (t_1>t_2 -> d(t_1)<d(t_2)))))) ->
+  ((dx>0&dx>=d(0)) -> 
+  (<t:=0; {t'=1}>
+  (t<=1 & dx-1>=d(t))
+  <->
+  ([t:=0; {t'=1}]
+  (t>=1->dx-1>=d(t)))))
+End.
+End.

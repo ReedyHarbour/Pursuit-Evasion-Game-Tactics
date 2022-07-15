@@ -1,0 +1,55 @@
+implyR(1) ; implyR(1) ; implyR(1) ; allLkeep("1", -2) ; (implyL(-4) ; <(
+hideR(1) ; andR(1) ; <(
+expand "nat" ; assignd(1) ; iterated(1) ; orR(1) ; hideR(2=="<?x>1;x:=x-1;><{?x>1;x:=x-1;}*>x=1") ; pQE, 
+  propClose
+), 
+skip
+)) ; hideL(-1=="p(1)") ; fullSimplify ; allLkeep("2", -1) ; ((implyL(-4) ; <(
+hideR(1) ; andR(1) ; <(
+skip, 
+  propClose
+), 
+skip
+)) ; <(
+expand "nat" ; assignd(1) ; iterated(1) ; orR(1) ; hideR(1=="x=1") ; composed(1) ; testd(1) ; andR(1) ; <(
+pQE, 
+  assignd(1) ; iterated(1) ; orR(1) ; hideR(2=="<?x>1;x:=x-1;><{?x>1;x:=x-1;}*>x=1") ; pQE
+), 
+skip
+)) ; hideL(-3) ; fullSimplify ; allLkeep("3", -1) ; ((implyL(-4) ; <(
+hideR(1) ; andR(1) ; <(
+skip, 
+  propClose
+), 
+skip
+)) ; <(
+expand "nat" ; (assignd(1) ; iterated(1) ; orR(1) ; hideR(1=="x=1") ; composed(1) ; testd(1) ; andR(1) ; <(
+pQE, 
+  skip
+))* ; assignd(1) ; iterated(1) ; orR(1) ; hideR(2=="<?x>1;x:=x-1;><{?x>1;x:=x-1;}*>x=1") ; pQE, 
+skip
+)) ; hideL(-3) ; fullSimplify ; allLkeep("4", -1) ; (implyL(-4) ; <(
+hideR(1) ; andR(1) ; <(
+skip, 
+  propClose
+), 
+skip
+)) ; <(
+expand "nat" ; (assignd(1) ; iterated(1) ; orR(1) ; hideR(1=="x=1") ; composed(1) ; testd(1) ; andR(1) ; <(
+pQE, 
+  skip
+))* ; assignd(1) ; iterated(1) ; orR(1) ; hideR(2=="<?x>1;x:=x-1;><{?x>1;x:=x-1;}*>x=1") ; pQE, 
+skip
+) ; hideL(-3) ; fullSimplify ; allLkeep("5", -1) ; (implyL(-4) ; <(
+hideR(1) ; andR(1) ; <(
+skip, 
+  propClose
+), 
+skip
+)) ; <(
+expand "nat" ; (assignd(1) ; iterated(1) ; orR(1) ; hideR(1=="x=1") ; composed(1) ; testd(1) ; andR(1) ; <(
+pQE, 
+  skip
+))* ; assignd(1) ; iterated(1) ; orR(1) ; hideR(2=="<?x>1;x:=x-1;><{?x>1;x:=x-1;}*>x=1") ; pQE, 
+fullSimplify ; propClose
+)

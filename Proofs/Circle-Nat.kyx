@@ -1,0 +1,320 @@
+implyR(1) ; composeb(1) ; composeb(1) ; assignb(1) ; testb(1) ; implyR(1) ; composeb(1) ; dualDirectb(1) ; composed(1) ; randomd(1) ; existsR("3", 1) ; testd(1) ; andR(1) ; <(
+  expand "vertex" ; expand "nat" ; andR(1) ; <(
+    andL(-1) ; pQE,
+    assignd(1) ; iterated(1) ; orR(1) ; hideR(1=="x=1") ; composed(1) ; testd(1) ; andR(1) ; <(
+      pQE,
+      assignd(1) ; iterated(1) ; orR(1) ; hideR(1=="x=1") ; composed(1) ; testd(1) ; andR(1) ; <(
+        pQE,
+        assignd(1) ; iterated(1) ; orR(1) ; hideR(2=="<?x>1;x:=x-1;><{?x>1;x:=x-1;}*>x=1") ; pQE
+        )
+      )
+    ),
+  loop("nat(A())&A()>=4&mod(r-c,2)&vertex(c)&vertex(r)", 1) ; <(
+    andR(1) ; <(
+      expand "nat" ; propClose,
+      andR(1) ; <(
+        propClose,
+        andR(1) ; <(
+          expand "mod" ; pQE,
+          andR(1) ; <(
+            expand "vertex" ; expand "nat" ; andR(1) ; <(
+              propClose,
+              propClose
+              ),
+            expand "vertex" ; expand "nat" ; andR(1) ; <(
+              pQE,
+              assignd(1) ; iterated(1) ; orR(1) ; hideR(1=="x=1") ; composed(1) ; testd(1) ; andR(1) ; <(
+                pQE,
+                assignd(1) ; iterated(1) ; orR(1) ; hideR(1=="x=1") ; composed(1) ; testd(1) ; andR(1) ; <(
+                  pQE,
+                  assignd(1) ; iterated(1) ; orR(1) ; pQE
+                  )
+                )
+              )
+            )
+          )
+        )
+      ),
+    composeb(1) ; assignb(1) ; composeb(1) ; randomb(1) ; allR(1) ; composeb(1) ; testb(1) ; implyR(1) ; dualDirectb(1) ; composed(1) ; testd(1) ; andR(1) ; <(
+      andL(-1) ; andL(-4) ; andL(-5) ; andL(-6) ; expand "mod" ; expand "edge" ; andL(-2) ; andL(-8) ; orL(-9) ; <(
+        pQE,
+        orL(-9) ; <(
+          expand "mod" ; pQE,
+          expand "mod" ; pQE
+          )
+        ),
+      composed(1) ; assignd(1) ; composed(1) ; randomd(1) ; expand "edge" ; andL(-3) ; andL(-5) ; orL(-6) ; <(
+        existsR("ro", 1) ; testd(1) ; andR(1) ; <(
+          andR(1) ; <(
+            allL2R(-3) ; andL(-1) ; andL(-7) ; andL(-8) ; andL(-9) ; propClose,
+            andR(1) ; <(
+              andL(-1) ; andL(-7) ; andL(-8) ; andL(-9) ; allL2R(-2) ; propClose,
+              orR(1) ; pQE
+              )
+            ),
+          allL2R(-2) ; allL2R(-6) ; allL2R(-3) ; propClose
+          ),
+        orL(-6) ; <(
+          expand "mod" ; cut("r=A()|r < A()") ; <(
+            orL(-7) ; <(
+              existsR("1", 1) ; testd(1) ; andR(1) ; <(
+                andR(1) ; <(
+                  expand "vertex" ; expand "nat" ; andR(1) ; <(
+                    andL(-1) ; andL(-8) ; pQE,
+                    assignd(1) ; iterated(1) ; orR(1) ; pQE
+                    ),
+                  andR(1) ; <(
+                    allL2R(-3) ; andL(-1) ; andL(-8) ; andL(-9) ; andL(-10) ; propClose,
+                    orR(1) ; orR(2) ; andL(-1) ; andL(-8) ; andL(-9) ; orL(-9) ; <(
+                      orL(-5) ; <(
+                        pQE,
+                        pQE
+                        ),
+                      orL(-5) ; <(
+                        pQE,
+                        pQE
+                        )
+                      )
+                    )
+                  ),
+                andL(-1) ; andL(-8) ; andL(-9) ; andL(-10) ; andR(1) ; <(
+                  propClose,
+                  andR(1) ; <(
+                    propClose,
+                    andR(1) ; <(
+                      expand "vertex" ; expand "nat" ; andL(-3) ; assignd(-12) ; iterated(-13) ; orL(-13) ; <(
+                        pQE,
+                        composed(-13) ; testd(-13) ; andL(-13) ; pQE
+                        ),
+                      andR(1) ; <(
+                        propClose,
+                        expand "vertex" ; expand "nat" ; assignd(1.1) ; andR(1) ; <(
+                          pQE,
+                          allR(1) ; implyR(1) ; iterated(1) ; orR(1) ; pQE
+                          )
+                        )
+                      )
+                    )
+                  )
+                ),
+              existsR("r+1", 1) ; testd(1) ; andR(1) ; <(
+                andR(1) ; <(
+                  expand "vertex" ; andL(-1) ; andL(-8) ; andL(-9) ; andL(-10) ; expand "nat" ; andR(1) ; <(
+                    andL(-11) ; useLemma("Nat-Inequality-Test", "nil") ; trueImply(-13) ; allL("A()", -13) ; allL("r", -13) ; implyL(-13) ; <(
+                      andR(2) ; <(
+                        assignd(-12) ; assignd(2) ; equalCommute(-12) ; alphaRenAll("r", "x") ; propClose,
+                        andR(2) ; <(
+                          assignd(2) ; andL(-7) ; assignd(-14) ; cut("r=x") ; <(
+                            alphaRenAll("r", "x") ; propClose,
+                            pQE
+                            ),
+                          propClose
+                          )
+                        ),
+                      propClose
+                      ),
+                    andL(-11) ; assignd(1) ; iterated(1) ; orR(1) ; composed(2) ; testd(2) ; andR(2) ; <(
+                      assignd(-12) ; iterated(-14) ; orL(-14) ; <(
+                        pQE,
+                        composed(-14) ; testd(-14) ; andL(-14) ; pQE
+                        ),
+                      assignd(2) ; assignd(-12) ; cut("x=x_0") ; <(
+                        alphaRenAll("x", "x_0") ; propClose,
+                        pQE
+                        )
+                      )
+                    ),
+                  andR(1) ; <(
+                    andL(-1) ; andL(-8) ; andL(-9) ; andL(-10) ; allL2R(-2) ; propClose,
+                    orR(1) ; orR(2) ; pQE
+                    )
+                  ),
+                andR(1) ; <(
+                  propClose,
+                  andR(1) ; <(
+                    propClose,
+                    andR(1) ; <(
+                      andL(-1) ; andL(-8) ; andL(-9) ; orL(-9) ; <(
+                        orL(-5) ; <(
+                          pQE,
+                          expand "vertex" ; expand "nat" ; andL(-3) ; assignd(-11) ; iterated(-12) ; orL(-12) ; <(
+                            pQE,
+                            composed(-12) ; testd(-12) ; andL(-12) ; pQE
+                            )
+                          ),
+                        orL(-5) ; <(
+                          pQE,
+                          expand "vertex" ; expand "nat" ; andL(-3) ; assignd(-11) ; iterated(-12) ; orL(-12) ; <(
+                            pQE,
+                            composed(-12) ; testd(-12) ; andL(-12) ; pQE
+                            )
+                          )
+                        ),
+                      andR(1) ; <(
+                        propClose,
+                        expand "vertex" ; andL(-1) ; andL(-8) ; andL(-9) ; andL(-10) ; expand "nat" ; andR(1) ; <(
+                          useLemma("Nat-Inequality-Test", "nil") ; trueImply(-12) ; allL("A()", -12) ; allL("r", -12) ; implyL(-12) ; <(
+                            andR(2) ; <(
+                              assignd(2) ; andL(-11) ; assignd(-12) ; equalCommute(-12) ; alphaRenAll("r", "x") ; propClose,
+                              andR(2) ; <(
+                                assignd(2) ; andL(-7) ; assignd(-13) ; cut("r=x") ; <(
+                                  alphaRenAll("r", "x") ; propClose,
+                                  pQE
+                                  ),
+                                propClose
+                                )
+                              ),
+                            propClose
+                            ),
+                          assignd(1) ; iterated(1) ; orR(1) ; composed(2) ; testd(2) ; andR(2) ; <(
+                            andL(-11) ; assignd(-13) ; iterated(-14) ; orL(-14) ; <(
+                              pQE,
+                              composed(-14) ; testd(-14) ; andL(-14) ; pQE
+                              ),
+                            assignd(2) ; andL(-11) ; assignd(-14) ; cut("x=x_0") ; <(
+                              alphaRenAll("x", "x_0") ; propClose,
+                              pQE
+                              )
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              ),
+            andL(-1) ; andL(-7) ; andL(-8) ; andL(-9) ; expand "vertex" ; expand "nat" ; andL(-10) ; pQE
+            ),
+          expand "mod" ; cut("r=1|r>1") ; <(
+            orL(-7) ; <(
+              existsR("A()", 1) ; testd(1) ; andR(1) ; <(
+                andR(1) ; <(
+                  andL(-1) ; expand "vertex" ; propClose,
+                  andR(1) ; <(
+                    andL(-1) ; andL(-8) ; andL(-9) ; andL(-10) ; allL2R(-2) ; propClose,
+                    orR(1) ; orR(2) ; pQE
+                    )
+                  ),
+                andR(1) ; <(
+                  andL(-1) ; propClose,
+                  andR(1) ; <(
+                    andL(-1) ; andL(-8) ; propClose,
+                    andR(1) ; <(
+                      andL(-1) ; andL(-8) ; andL(-9) ; orL(-9) ; <(
+                        orL(-5) ; <(
+                          expand "vertex" ; expand "nat" ; andL(-3) ; assignd(-11) ; iterated(-12) ; orL(-12) ; <(
+                            pQE,
+                            composed(-12) ; testd(-12) ; andL(-12) ; pQE
+                            ),
+                          pQE
+                          ),
+                        orL(-5) ; <(
+                          pQE,
+                          expand "vertex" ; expand "nat" ; andL(-3) ; assignd(-11) ; iterated(-12) ; orL(-12) ; <(
+                            pQE,
+                            composed(-12) ; testd(-12) ; andL(-12) ; pQE
+                            )
+                          )
+                        ),
+                      andR(1) ; <(
+                        propClose,
+                        andL(-1) ; expand "vertex" ; propClose
+                        )
+                      )
+                    )
+                  )
+                ),
+              existsR("r-1", 1) ; testd(1) ; andR(1) ; <(
+                andR(1) ; <(
+                  cut("r>=2") ; <(
+                    expand "vertex" ; expand "nat" ; andR(1) ; <(
+                      andL(-1) ; andL(-9) ; andL(-10) ; andL(-11) ; andL(-12) ; pQE,
+                      assignd(1) ; andL(-1) ; andL(-10) ; andL(-11) ; andL(-12) ; andL(-13) ; assignd(-14) ; iterated(-15) ; orL(-15) ; <(
+                        pQE,
+                        composed(-15) ; testd(-15) ; andL(-15) ; assignd(-16) ; cut("x=x_0") ; <(
+                          alphaRenAll("x", "x_0") ; propClose,
+                          pQE
+                          )
+                        )
+                      ),
+                    useLemma("Nat-Inequality-Test", "nil") ; trueImply(-8) ; allL("r", -8) ; allL("1", -8) ; implyL(-8) ; <(
+                      andR(3) ; <(
+                        assignd(3) ; iterated(3) ; orR(3) ; pQE,
+                        assignd(3.0) ; andR(3) ; <(
+                          allR(3) ; implyR(3) ; andL(-1) ; andL(-9) ; andL(-10) ; andL(-11) ; expand "vertex" ; expand "nat" ; andL(-12) ; assignd(-13) ; cut("x_0=x") ; <(
+                            alphaRenAll("x_0", "x") ; propClose,
+                            pQE
+                            ),
+                          pQE
+                          )
+                        ),
+                      pQE
+                      )
+                    ),
+                  andR(1) ; <(
+                    andL(-1) ; andL(-8) ; andL(-9) ; andL(-10) ; allL2R(-2) ; propClose,
+                    pQE
+                    )
+                  ),
+                andL(-1) ; andL(-8) ; andL(-9) ; andL(-10) ; andR(1) ; <(
+                  propClose,
+                  andR(1) ; <(
+                    propClose,
+                    andR(1) ; <(
+                      orL(-5) ; <(
+                        orL(-9) ; <(
+                          pQE,
+                          pQE
+                          ),
+                        orL(-9) ; <(
+                          pQE,
+                          expand "vertex" ; expand "nat" ; andL(-3) ; assignd(-12) ; iterated(-13) ; orL(-13) ; <(
+                            pQE,
+                            composed(-13) ; testd(-13) ; andL(-13) ; pQE
+                            )
+                          )
+                        ),
+                      andR(1) ; <(
+                        propClose,
+                        expand "vertex" ; cut("r>=2") ; <(
+                          expand "nat" ; andL(-11) ; andR(1) ; <(
+                            pQE,
+                            assignd(1) ; assignd(-13) ; iterated(-15) ; orL(-15) ; <(
+                              pQE,
+                              composed(-15) ; testd(-15) ; andL(-15) ; assignd(-16) ; cut("x=x_0") ; <(
+                                alphaRenAll("x", "x_0") ; propClose,
+                                pQE
+                                )
+                              )
+                            ),
+                          useLemma("Nat-Inequality-Test", "nil") ; trueImply(-12) ; allL("r", -12) ; allL("1", -12) ; implyL(-12) ; <(
+                            andR(3) ; <(
+                              assignd(3) ; iterated(3) ; orR(3) ; pQE,
+                              assignd(3.0) ; andR(3) ; <(
+                                allR(3) ; implyR(3) ; expand "nat" ; andL(-11) ; assignd(-13) ; cut("x_0=x") ; <(
+                                  alphaRenAll("x_0", "x") ; propClose,
+                                  pQE
+                                  ),
+                                pQE
+                                )
+                              ),
+                            pQE
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              ),
+            andL(-1) ; andL(-7) ; andL(-8) ; andL(-9) ; expand "vertex" ; expand "nat" ; andL(-10) ; assignd(-11) ; iterated(-12) ; orL(-12) ; <(
+              pQE,
+              composed(-12) ; testd(-12) ; andL(-12) ; pQE
+              )
+            )
+          )
+        )
+      ),
+    andL(-1) ; andL(-2) ; andL(-3) ; expand "mod" ; pQE
+    )
+  )

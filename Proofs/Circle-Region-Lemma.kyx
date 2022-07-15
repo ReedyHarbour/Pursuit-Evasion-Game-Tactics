@@ -1,0 +1,80 @@
+implyR('R=="xC^2+yC^2<=xR^2+yR^2&xR*yC=yR*xC&(xR-xC)^2+(yR-yC)^2<=xR^2+yR^2->[{xR1:=*;yR1:=*;?xR1^2+yR1^2=1;}{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}^@](yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)");
+composeb('R=="[{xR1:=*;yR1:=*;?xR1^2+yR1^2=1;}{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}^@](yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)");
+composeb('R=="[xR1:=*;yR1:=*;?xR1^2+yR1^2=1;][{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}^@](yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)");
+randomb('R=="[xR1:=*;][yR1:=*;?xR1^2+yR1^2=1;][{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}^@](yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)");
+allR('R=="\forall xR1 [yR1:=*;?xR1^2+yR1^2=1;][{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}^@](yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)");
+composeb('R=="[yR1:=*;?xR1^2+yR1^2=1;][{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}^@](yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)");
+randomb('R=="[yR1:=*;][?xR1^2+yR1^2=1;][{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}^@](yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)");
+allR('R=="\forall yR1 [?xR1^2+yR1^2=1;][{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}^@](yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)");
+testb('R=="[?xR1^2+yR1^2=1;][{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}^@](yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)");
+implyR('R=="xR1^2+yR1^2=1->[{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}^@](yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)");
+dualDirectb('R=="[{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}^@](yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)");
+composed('R=="<xC1:=*;yC1:=*;?xC1^2+yC1^2=1;>(yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)");
+composed('R=="<xC1:=*;>#<yC1:=*;?xC1^2+yC1^2=1;>(yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)#");
+randomd('R=="<xC1:=*;><yC1:=*;><?xC1^2+yC1^2=1;>(yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)");
+randomd('R=="\exists xC1 #<yC1:=*;><?xC1^2+yC1^2=1;>(yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)#");
+testd('R=="\exists xC1 \exists yC1 #<?xC1^2+yC1^2=1;>(yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1)#");
+cut("\exists xR0 xR0=xR+xR1"); <(
+  "Use":
+    existsL('L=="\exists xR0 xR0=xR+xR1");
+    cut("\exists yR0 yR0=yR+yR1"); <(
+      "Use":
+        existsL('L=="\exists yR0 yR0=yR+yR1");
+        cut("xR0=0|xR0!=0"); <(
+          "Use":
+            orL('L=="xR0=0|xR0!=0"); <(
+              "xR0=0":
+                existsR("-xC", 'R=="\exists xC1 \exists yC1 (xC1^2+yC1^2=1&(yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1))");
+                existsR("(1-xC^2)^(1/2)", 'R=="\exists yC1 ((-xC)^2+yC1^2=1&(yR+yR1)*(xC+-xC)=(xR+xR1)*(yC+yC1))");
+                QE,
+              "xR0!=0":
+                cut("\exists k k=yR0/xR0"); <(
+                  "Use":
+                    existsL('L=="\exists k k=yR0/xR0");
+                    cut("\exists A A=1+k^2"); <(
+                      "Use":
+                        existsL('L=="\exists A A=1+k^2");
+                        cut("\exists B B=(-2)*xC-2*k*yC"); <(
+                          "Use":
+                            existsL('L=="\exists B B=(-2)*xC-2*k*yC");
+                            cut("\exists C C=xC^2+yC^2-1"); <(
+                              "Use":
+                                existsL('L=="\exists C C=xC^2+yC^2-1");
+                                cut("\exists D D=B^2-4*A*C"); <(
+                                  "Use":
+                                    existsL('L=="\exists D D=B^2-4*A*C");
+                                    cut("\exists xC0 xC0=(-B+D^(1/2))/(2*A)"); <(
+                                      "Use":
+                                        existsL('L=="\exists xC0 xC0=(-B+D^(1/2))/(2*A)");
+                                        existsR("xC0-xC", 'R=="\exists xC1 \exists yC1 (xC1^2+yC1^2=1&(yR+yR1)*(xC+xC1)=(xR+xR1)*(yC+yC1))");
+                                        existsR("yR0/xR0*xC0-yC", 'R=="\exists yC1 ((xC0-xC)^2+yC1^2=1&(yR+yR1)*(xC+(xC0-xC))=(xR+xR1)*(yC+yC1))");
+                                        auto,
+                                      "Show":
+                                        existsR("(-B+D^(1/2))/(2*A)", 'R=="\exists xC0 xC0=(-B+D^(1/2))/(2*A)") using "xC^2+yC^2<=xR^2+yR^2&xR*yC=yR*xC&(xR-xC)^2+(yR-yC)^2<=xR^2+yR^2 :: xR1^2+yR1^2=1 :: xR0=xR+xR1 :: yR0=yR+yR1 :: xR0!=0 :: k=yR0/xR0 :: A=1+k^2 :: B=(-2)*xC-2*k*yC :: C=xC^2+yC^2-1 :: D=B^2-4*A*C :: \exists xC0 xC0=(-B+D^(1/2))/(2*A) :: nil";
+                                        auto
+                                    ),
+                                  "Show":
+                                    auto
+                                ),
+                              "Show":
+                                auto
+                            ),
+                          "Show":
+                            auto
+                        ),
+                      "Show":
+                        auto
+                    ),
+                  "Show":
+                    auto
+                )
+            ),
+          "Show":
+            auto
+        ),
+      "Show":
+        auto
+    ),
+  "Show":
+    auto
+)

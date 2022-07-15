@@ -1,0 +1,32 @@
+allR(1) ; allR(1) ; implyR(1) ; andL(-1) ; cut("nat(y)->nat(x*y)") ; <(
+propClose, 
+hideL(-2=="nat(y)") ; hideR(1=="nat(x*y)") ; cut("p(1)->\forall x (nat(x)&p(x)->p(x+1))->\forall y (nat(y)->p(y))") ; <(
+implyL(-2) ; <(
+  expand "p" ; hideR(1=="nat(y)->nat(x*y)") ; allR(1) ; fullSimplify ; propClose, 
+    implyL(-2) ; <(
+    hideR(1=="nat(y)->nat(x*y)") ; allR(1) ; US("(p(•)~>\forall n (nat(n)->nat(n*•)))") ; implyR(1) ; andL(-2) ; hideL(-1=="nat(x_0)") ; allR(1) ; allL(-2) ; implyR(1) ; implyL(-2) ; <(
+      propClose, 
+        nil
+      ), 
+      nil
+    )
+  ), 
+  nil
+)
+) ; <(
+  edit("nat(n*x+n)", 1) ; cut("nat(n*x)&nat(n)->nat(n*x+n)") ; <(
+    propClose,
+    hideR(1=="nat(n*x+n)") ; hideL(-2=="nat(n*x)") ; hideL(-2=="nat(n)") ; useLemma("Nat-Plus-All", "nil") ; trueImply(-2) ; allL("n*x", -2) ; allL("n", -2) ; propClose
+    ),
+  hideR(1=="nat(y)->nat(x*y)") ; hideL(-1=="nat(x)") ; cut("p(1)->\forall x (nat(x)&p(x)->p(x+1))->\forall y (nat(y)->p(y))") ; <(
+    US("(p(•)~>\forall n (nat(n)->nat(n*•)))") ; propClose,
+    hideR(1=="\forall n (nat(n)->nat(n*1))->\forall x (nat(x)&\forall n (nat(n)->nat(n*x))->\forall n (nat(n)->nat(n*(x+1))))->\forall y (nat(y)->\forall n (nat(n)->nat(n*y)))") ; useLemma("Nat-Induction-All", "nil") ; trueImply(-1) ; propClose
+    ),
+  allL(-2) ; implyL(-2) ; <(
+    implyR(1) ; propClose,
+    allL("x", -2) ; implyR(1) ; implyL(-2) ; <(
+      propClose,
+      propClose
+      )
+    )
+  )

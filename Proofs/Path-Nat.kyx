@@ -1,0 +1,101 @@
+implyR(1) ; composed(1) ; composed(1) ; randomd(1) ; existsR("A()", 1) ; testd(1) ; andR(1) ; <(
+  expand "vertex" ; andR(1) ; <(
+    allL2R(-2) ; propClose,
+    pQE
+    ),
+  composed(1) ; dualDirectd(1) ; composeb(1) ; randomb(1) ; allR(1) ; testb(1) ; implyR(1) ; con("d", "nat(A())&vertex(r)&vertex(c)&c>=r&d=c-1", 1) ; <(
+    existsR("c-1", 1) ; andR(1) ; <(
+      propClose,
+      andR(1) ; <(
+        propClose,
+        andR(1) ; <(
+          allL2R(-2) ; expand "vertex" ; andR(1) ; <(
+            propClose,
+            pQE
+            ),
+          andR(1) ; <(
+            expand "vertex" ; andL(-3) ; pQE,
+            pQE
+            )
+          )
+        )
+      ),
+    andL(-2) ; andL(-3) ; andL(-4) ; andL(-5) ; expand "vertex" ; andL(-4) ; expand "nat" ; assignd(-6) ; iterated(-8) ; orL(-8) ; <(
+      andL(-3) ; assignd(-8) ; iterated(-10) ; orL(-10) ; <(
+        pQE,
+        composed(-10) ; testd(-10) ; andL(-10) ; pQE
+        ),
+      composed(-8) ; testd(-8) ; andL(-8) ; pQE
+      ),
+    composed(1) ; assignd(1) ; composed(1) ; randomd(1) ; existsR("c-1", 1) ; composed(1) ; testd(1) ; andR(1) ; <(
+      andL(-2) ; andL(-4) ; andL(-5) ; andL(-6) ; expand "edge" ; andR(1) ; <(
+        expand "vertex" ; andL(-5) ; expand "nat" ; assignd(-7) ; iterated(-9) ; orL(-9) ; <(
+          pQE,
+          composed(-9) ; testd(-9) ; andL(-9) ; assignd(-10) ; hideL(-3=="<x_0:=A();><{?x_0>1;x_0:=x_0-1;}*>x_0=1") ; hideL(-3=="<x_0:=r;><{?x_0>1;x_0:=x_0-1;}*>x_0=1&r<=A()") ; andR(1) ; <(
+            assignd(1) ; allR2L(-8) ; allR2L(-6) ; allR2L(-8) ; alphaRenAll("x_0", "x") ; propClose,
+            pQE
+            )
+          ),
+        andR(1) ; <(
+          allL2R(-2) ; propClose,
+          orR(1) ; orR(2) ; pQE
+          )
+        ),
+      dualDirectd(1) ; composeb(1) ; testb(1) ; implyR(1) ; composeb(1) ; assignb(1) ; composeb(1) ; randomb(1) ; allR(1) ; testb(1) ; implyR(1) ; andR(1) ; <(
+        andL(-2) ; propClose,
+        andR(1) ; <(
+          expand "edge" ; andL(-6) ; propClose,
+          andR(1) ; <(
+            andL(-2) ; andL(-7) ; andL(-8) ; andL(-9) ; expand "vertex" ; andL(-8) ; expand "nat" ; assignd(-10) ; iterated(-12) ; orL(-12) ; <(
+              pQE,
+              composed(-12) ; testd(-12) ; andL(-12) ; assignd(-13) ; andR(1) ; <(
+                assignd(1) ; allL2R(-13) ; allL2R(-11) ; allR2L(-13) ; alphaRenAll("x_0", "x") ; propClose,
+                pQE
+                )
+              ),
+            andR(1) ; <(
+              andL(-2) ; andL(-7) ; andL(-8) ; andL(-9) ; expand "edge" ; andL(-5) ; andL(-11) ; orL(-12) ; <(
+                allL2R(-12) ; allL2R(-9) ; allL2R(-4) ; andL(-3) ; allL2R(-2) ; useLemma("Nat-Inequality-Test", "nil") ; trueImply(-14) ; allL("c", -14) ; allL("r", -14) ; implyL(-14) ; <(
+                  andR(2) ; <(
+                    allL2R(-11) ; expand "vertex" ; andL(-9) ; andL(-5) ; expand "nat" ; assignd(-14) ; assignd(2) ; allR2L(-15) ; alphaRenAll("r", "x") ; propClose,
+                    andR(2) ; <(
+                      expand "vertex" ; andL(-6) ; expand "nat" ; assignd(-13) ; assignd(2) ; allR2L(-14) ; alphaRenAll("r", "x") ; propClose,
+                      pQE
+                      )
+                    ),
+                  pQE
+                  ),
+                orL(-12) ; <(
+                  andL(-3) ; useLemma("Nat-Inequality-Test", "nil") ; trueImply(-14) ; allL("c", -14) ; allL("r", -14) ; implyL(-14) ; <(
+                    andR(2) ; <(
+                      assignd(2) ; expand "vertex" ; andL(-9) ; expand "nat" ; assignd(-13) ; equalCommute(-14) ; alphaRenAll("r", "x") ; propClose,
+                      andR(2) ; <(
+                        assignd(2) ; expand "vertex" ; andL(-6) ; expand "nat" ; assignd(-14) ; allR2L(-15) ; alphaRenAll("r", "x") ; propClose,
+                        allL2R(-2) ; allL2R(-3) ; edit("c!=r", -12) ; cut("c>=r") ; <(
+                          pQE,
+                          useLemma("Nat-Inequality-Test", "nil") ; trueImply(-14) ; allL("c", -14) ; allL("r_0", -14) ; implyL(-14) ; <(
+                            andR(4) ; <(
+                              expand "vertex" ; allL2R(-11) ; andL(-10) ; expand "nat" ; assignd(-13) ; assignd(4) ; equalCommute(-14) ; alphaRenAll("r_0", "x") ; propClose,
+                              andR(4) ; <(
+                                assignd(4) ; expand "vertex" ; andL(-6) ; expand "nat" ; assignd(-14) ; allR2L(-13) ; equalCommute(-15) ; alphaRenAll("r_0", "x") ; propClose,
+                                pQE
+                                )
+                              ),
+                            pQE
+                            )
+                          )
+                        )
+                      ),
+                    pQE
+                    ),
+                  pQE
+                  )
+                ),
+              andL(-2) ; andL(-7) ; andL(-8) ; andL(-9) ; pQE
+              )
+            )
+          )
+        )
+      )
+    )
+  )

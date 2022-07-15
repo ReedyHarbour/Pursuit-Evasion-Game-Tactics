@@ -1,0 +1,10 @@
+allR(1) ; implyR(1) ; expand "nat" ; assignd(1) ; iterated(1) ; orR(1) ; hideR(1=="x=1") ; composed(1) ; testd(1) ; andR(1) ; <(
+  assignd(-1) ; iterated(-3) ; orL(-3) ; <(
+    QE,
+    composed(-3) ; testd(-3) ; andL(-3) ; pQE
+    ),
+  assignd(1) ; assignd(-1) ; cut("x=n") ; <(
+    allR2L(-5) ; allL2R(-3) ; allR2L(-3) ; alphaRenAllBy(-3) ; propClose,
+    pQE
+    )
+  )

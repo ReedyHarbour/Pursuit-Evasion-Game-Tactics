@@ -1,0 +1,52 @@
+allR(1) ; cut("p(1)->\forall x (nat(x)&p(x)->p(x+1))->\forall y (nat(y)->p(y))") ; <(
+implyL(-1) ; <(
+hideR(1=="nat(x)&nat(n())&x < n()->x+1<=n()") ; expand "p" ; implyR(1) ; allR(1) ; implyR(1) ; andL(-2) ; expand "nat" ; assignd(-2) ; iterated(-4) ; orL(-4) ; <(
+  pQE, 
+    composed(-4) ; assignd(-4.1) ; testd(-4) ; andL(-4) ; pQE
+  ), 
+  implyL(-1) ; <(
+  allR(2) ; implyR(2) ; hideR(1=="nat(x_0)&nat(n())&x_0 < n()->x_0+1<=n()") ; expand "p" ; andL(-1) ; implyL(-2) ; <(
+    implyR(1) ; propClose, 
+      implyR(1) ; allR(1) ; implyR(1) ; andL(-4) ; cut("r=1|r>1") ; <(
+      orL(-6) ; <(
+        expand "nat" ; assignd(-1) ; allL2R(-6) ; iterated(-1) ; orL(-1) ; <(
+          pQE, 
+            composed(-1) ; testd(-1) ; andL(-1) ; pQE
+          ), 
+          allL("r-1", -2) ; implyL(-2) ; <(
+          andR(2) ; <(
+            hideR(1=="r<=x+1-1") ; expand "nat" ; assignd(-3) ; iterated(-6) ; orL(-6) ; <(
+              pQE, 
+                composed(-6) ; testd(-6) ; andL(-6) ; assignd(-7) ; allL2R(-5) ; assignd(1) ; cut("x_0=x") ; <(
+                alphaRenAll("x_0", "x") ; propClose, 
+                  pQE
+                )
+              ), 
+              hideR(1=="r<=x+1-1") ; pQE
+            ), 
+            pQE
+          )
+        ), 
+        hideR(1=="r<=x+1-1") ; expand "nat" ; assignd(-4) ; iterated(-6) ; composed(-6.1) ; orL(-6) ; <(
+        pQE, 
+          testd(-6) ; andL(-6) ; pQE
+        )
+      )
+    ), 
+    allL("n()", -1) ; implyL(-1) ; <(
+    implyR(1) ; andL(-1) ; andL(-2) ; propClose, 
+      expand "p" ; implyL(-1) ; <(
+      implyR(1) ; andL(-1) ; andL(-2) ; propClose, 
+        allL("x", -1) ; implyL(-1) ; <(
+        implyR(1) ; andL(-1) ; andL(-2) ; andR(1) ; <(
+          propClose, 
+            propClose
+          ), 
+          implyR(1) ; pQE
+        )
+      )
+    )
+  )
+), 
+useLemma("Nat-Induction-All", "nil") ; propClose
+)

@@ -1,0 +1,86 @@
+implyR(1) ; composeb(1) ; composeb(1) ; assignb(1) ; testb(1) ; implyR(1) ; composeb(1) ; dualDirectb(1) ; composed(1) ; randomd(1) ; existsR("3", 'R) ; testd(1) ; andR(1) ; <(
+  andL(-1) ; andL(-5) ; allLkeep("0", 'L) ; allLkeep("1", 'L) ; allLkeep("2", 'L) ; implyL(-7) ; <(
+    expand "vertex" ; propClose,
+    implyL(-8) ; <(
+      hideR(1=="vertex(r)") ; edit("nat(1)", -7) ; propClose,
+      implyL(-9) ; <(
+        hideR(1=="vertex(r)") ; edit("nat(2)", -8) ; propClose,
+        allL2R(-3) ; expand "vertex" ; edit("nat(3)", -9) ; propClose
+        )
+      )
+    ),
+  loop("vertex(0)&\forall x (nat(x)->nat(x+1))&\forall x \forall y (nat(x)&nat(y)->nat(x+y))&vertex(c)&vertex(r)&r-c>=2", 1) ; <(
+    andR(1) ; <(
+      propClose,
+      andR(1) ; <(
+        propClose,
+        andR(1) ; <(
+          propClose,
+          andR(1) ; <(
+            propClose,
+            andR(1) ; <(
+              expand "vertex" ; allLkeep("0", 'L) ; allLkeep("1", 'L) ; allLkeep("2", 'L) ; implyL(-7) ; <(
+                hideR(1=="nat(r)") ; propClose,
+                implyL(-8) ; <(
+                  edit("nat(1)", -7) ; propClose,
+                  implyL(-9) ; <(
+                    edit("nat(2)", -8) ; propClose,
+                    edit("nat(3)", -9) ; allL2R(-3) ; propClose
+                    )
+                  )
+                ),
+              hideL(-5=="\forall x (nat(x)->nat(x+1))") ; hideL(-5=="\forall x \forall y (nat(x)&nat(y)->nat(x+y))") ; QE
+              )
+            )
+          )
+        )
+      ),
+    composeb(1) ; assignb(1) ; composeb(1) ; randomb(1) ; allR(1) ; composeb(1) ; testb(1) ; implyR(1) ; dualDirectb(1) ; composed(1) ; testd(1) ; andR(1) ; <(
+      expand "edge" ; andL(-1) ; andL(-4) ; andL(-5) ; andL(-6) ; andL(-7) ; andL(-2) ; andL(-9) ; orL(-10) ; <(
+        allL2R(-1) ; allL2R(-10) ; hideL(-3=="\forall x (nat(x)->nat(x+1))") ; hideL(-3=="\forall x \forall y (nat(x)&nat(y)->nat(x+y))") ; QE,
+        orL(-10) ; <(
+          allL2R(-10) ; allL2R(-1) ; hideL(-4=="\forall x \forall y (nat(x)&nat(y)->nat(x+y))") ; hideL(-3=="\forall x (nat(x)->nat(x+1))") ; QE,
+          allL2R(-10) ; allL2R(-1) ; hideL(-3=="\forall x (nat(x)->nat(x+1))") ; hideL(-3=="\forall x \forall y (nat(x)&nat(y)->nat(x+y))") ; QE
+          )
+        ),
+      composed(1) ; assignd(1) ; composed(1) ; randomd(1) ; existsR("ro+1", 'R) ; testd(1) ; andR(1) ; <(
+        expand "edge" ; andR(1) ; <(
+          andL(-1) ; andL(-5) ; andL(-6) ; allL(-6) ; andL(-7) ; andL(-8) ; allL2R(-3) ; allLkeep("r", -5) ; implyL(-10) ; <(
+            hideR(1=="vertex(r+1)") ; expand "vertex" ; propClose,
+            expand "vertex" ; propClose
+            ),
+          andR(1) ; <(
+            andL(-1) ; andL(-5) ; andL(-6) ; allL(-6) ; andL(-7) ; andL(-8) ; allL2R(-3) ; propClose,
+            orR(1) ; orR(2) ; hideR(3=="ro+1=ro-1") ; hideR(1=="ro+1=ro") ; hideL(-1=="vertex(0)&\forall x (nat(x)->nat(x+1))&\forall x \forall y (nat(x)&nat(y)->nat(x+y))&vertex(c_0)&vertex(r)&r-c_0>=2") ; QE
+            )
+          ),
+        andR(1) ; <(
+          andL(-1) ; propClose,
+          andR(1) ; <(
+            andL(-1) ; andL(-5) ; propClose,
+            andR(1) ; <(
+              andL(-1) ; andL(-5) ; andL(-6) ; propClose,
+              andR(1) ; <(
+                andL(-1) ; andL(-5) ; andL(-6) ; andL(-7) ; allL2R(-1) ; expand "edge" ; andL(-2) ; propClose,
+                andR(1) ; <(
+                  andL(-1) ; andL(-5) ; andL(-6) ; andL(-7) ; andL(-8) ; allLkeep("ro", -5) ; implyL(-10) ; <(
+                    hideR(1=="vertex(ro+1)") ; expand "vertex" ; allL2R(-3) ; propClose,
+                    expand "vertex" ; propClose
+                    ),
+                  andL(-1) ; andL(-5) ; andL(-6) ; andL(-7) ; andL(-8) ; hideL(-5=="\forall x (nat(x)->nat(x+1))") ; hideL(-5=="\forall x \forall y (nat(x)&nat(y)->nat(x+y))") ; allL2R(-3) ; allL2R(-1) ; expand "edge" ; andL(-2) ; andL(-8) ; orL(-9) ; <(
+                    allL2R(-9) ; QE,
+                    orL(-9) ; <(
+                      QE,
+                      QE
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      ),
+    andL(-1) ; andL(-2) ; andL(-3) ; andL(-4) ; andL(-5) ; hideL(-2=="\forall x (nat(x)->nat(x+1))") ; hideL(-2=="\forall x \forall y (nat(x)&nat(y)->nat(x+y))") ; QE
+    )
+  )

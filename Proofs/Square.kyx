@@ -1,0 +1,74 @@
+composeb(1) ; composeb(1) ; assignb(1) ; testb(1) ; implyR(1) ; expand "vertex" ; orL(-2) ; <(
+  hideL(-2=="c=1") ; composeb(1) ; dualDirectb(1) ; composed(1) ; testd(1.1) ; randomd(1) ; existsR("3", 'R) ; andR(1) ; <(
+    orR(1) ; QE,
+    loop("(c=1|c=2|c=3|c=4)&(r=1|r=2|r=3|r=4)&mod(c-r,n(),2)", 1) ; <(
+      andR(1) ; <(
+        QE,
+        andR(1) ; <(
+          QE,
+          US("(n()~>4)") ; expand "mod" ; QE
+          )
+        ),
+      US("(n()~>4)") ; andL(-1) ; andL(-2) ; expand "mod" ; existsL(-3) ; composeb(1) ; assignb(1) ; composeb(1) ; randomb(1) ; allR(1) ; composeb(1) ; testb(1) ; implyR(1) ; dualDirectb(1) ; composed(1) ; testd(1) ; andR(1) ; <(
+        expand "edge" ; andL(-5) ; andL(-6) ; orL(-7) ; <(
+          expand "mod" ; expand "vertex" ; existsL(-7) ; andL(-7) ; US("(n()~>4)") ; QE,
+          expand "vertex" ; expand "mod" ; US("(n()~>4)") ; existsL(-7) ; QE
+          ),
+        composed(1) ; assignd(1) ; composed(1) ; randomd(1) ; testd(1.0) ; expand "edge" ; andL(-5) ; andL(-7) ; orL(-8) ; <(
+          US("(n()~>4)") ; expand "mod" ; expand "vertex" ; hideL(-1=="c_0=1|c_0=2|c_0=3|c_0=4") ; orL(-5) ; <(
+            orL(-6) ; <(
+              hideR(1=="\exists r (((r=1|r=2|r=3|r=4)&(ro=1|ro=2|ro=3|ro=4)&(\exists q ((q=0|q=(-1))&r-ro=4*q+1)|\exists q ((q=0|q=(-1))&ro-r=4*q+1)))&(c=1|c=2|c=3|c=4)&(r=1|r=2|r=3|r=4)&\exists q ((q=0|q=(-1))&c-r=4*q+2))") ; QE,
+              orL(-6) ; <(
+                hideR(1=="\exists r (((r=1|r=2|r=3|r=4)&(ro=1|ro=2|ro=3|ro=4)&(\exists q ((q=0|q=(-1))&r-ro=4*q+1)|\exists q ((q=0|q=(-1))&ro-r=4*q+1)))&(c=1|c=2|c=3|c=4)&(r=1|r=2|r=3|r=4)&\exists q ((q=0|q=(-1))&c-r=4*q+2))") ; QE,
+                orL(-6) ; <(
+                  hideR(1=="\exists r (((r=1|r=2|r=3|r=4)&(ro=1|ro=2|ro=3|ro=4)&(\exists q ((q=0|q=(-1))&r-ro=4*q+1)|\exists q ((q=0|q=(-1))&ro-r=4*q+1)))&(c=1|c=2|c=3|c=4)&(r=1|r=2|r=3|r=4)&\exists q ((q=0|q=(-1))&c-r=4*q+2))") ; QE,
+                  existsR("3", 'R) ; andR(1) ; <(
+                    andR(1) ; <(
+                      QE,
+                      andR(1) ; <(
+                        QE,
+                        orR(1) ; hideR(2=="\exists q ((q=0|q=(-1))&ro-3=4*q+1)") ; orL(-1) ; <(
+                          QE,
+                          QE
+                          )
+                        )
+                      ),
+                    andR(1) ; <(
+                      QE,
+                      andR(1) ; <(
+                        QE,
+                        QE
+                        )
+                      )
+                    )
+                  )
+                )
+              ),
+            orL(-5) ; <(
+              orL(-6) ; <(
+                existsR("4", 'R) ; andR(1) ; <(
+                  QE,
+                  QE
+                  ),
+                QE
+                ),
+              orL(-5) ; <(
+                orL(-6) ; <(
+                  QE,
+                  orL(-6) ; <(
+                    existsR("1", 'R) ; QE,
+                    QE
+                    )
+                  ),
+                QE
+                )
+              )
+            ),
+          expand "vertex" ; expand "mod" ; US("(n()~>4)") ; existsL(-8) ; QE
+          )
+        ),
+      andL(-1) ; andL(-2) ; expand "mod" ; US("(n()~>4)") ; existsL(-3) ; QE
+      )
+    ),
+  hideR(1=="[{r:=*;?r=1|r=2|r=3|r=4;}^@{co:=c;c:=*;?edge(c,co);{?c!=r;ro:=r;r:=*;?edge(r,ro);}^@}*]c!=r") ; QE
+  )
