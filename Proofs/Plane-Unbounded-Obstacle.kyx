@@ -1,0 +1,71 @@
+﻿/* Exported from KeYmaera X v4.9.8 */
+
+Theorem "Model/Plane-Unbounded-Obstacle"
+
+Definitions
+  /* The disntance between cop and robber < r */
+  Bool inBall(Real xC, Real yC, Real xR, Real yR, Real r) <-> (xC-xR)^2 + (yC-yR)^2 <= r^2;
+  Real vC;
+  Real vR;
+End.
+
+ProgramVariables
+    Real xC;  /* cop x-position */
+    Real yC;  /* cop y-position */
+    Real xR;  /* robber x-position */
+    Real yR;  /* robber y-position */
+    Real xC1; /* cop x-speed */
+    Real yC1; /* cop y-speed */
+    Real xR1; /* robber x-speed */
+    Real yR1; /* robber y-speed */
+End.
+
+Problem
+    vC=vR & vR=1 & xC=-1 & yC=0 & xR=-3 & yR=0 -> 
+    [{{xR1:=*;yR1:=*;?xR1^2+yR1^2=1;}^@; /* robber chooses direction */
+     {xC1:=*;yC1:=*;?xC1^2+yC1^2=1;};    /* cop chooses direction */
+     {t:=0;}; 
+     {xR'=vR*xR1, yR'=vR*yR1, xC'=vC*xC1, yC'=vC*yC1, t'=1 & (t<=1 & xC<=0)}
+     }*
+    ](xR<=0 -> (!inBall(xC, yC, xR, yR, 1)))
+End.
+
+Tactic "Model/Plane-Unbounded-Obstacle: Proof"
+implyR('R=="vC()=vR()&vR()=1&xC=(-1)&yC=0&xR=(-3)&yR=0->[{{xR1:=*;yR1:=*;?xR1^2+yR1^2=1;}^@{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*xR1,yR'=vR()*yR1,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}}*](xR<=0->!inBall(xC,yC,xR,yR,1))");
+loop("vC()=vR()&vR()=1&xC-xR>=2", 'R=="[{{xR1:=*;yR1:=*;?xR1^2+yR1^2=1;}^@{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*xR1,yR'=vR()*yR1,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}}*](xR<=0->!inBall(xC,yC,xR,yR,1))"); <(
+  "Init":
+    auto,
+  "Step":
+    composeb('R=="[{xR1:=*;yR1:=*;?xR1^2+yR1^2=1;}^@{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*xR1,yR'=vR()*yR1,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+    dualDirectb('R=="[{xR1:=*;yR1:=*;?xR1^2+yR1^2=1;}^@][{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*xR1,yR'=vR()*yR1,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+    composed('R=="<xR1:=*;yR1:=*;?xR1^2+yR1^2=1;>[{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*xR1,yR'=vR()*yR1,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+    randomd('R=="<xR1:=*;><yR1:=*;?xR1^2+yR1^2=1;>[{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*xR1,yR'=vR()*yR1,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+    existsR("(-1)", 'R=="\exists xR1 <yR1:=*;?xR1^2+yR1^2=1;>[{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*xR1,yR'=vR()*yR1,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+    composed('R=="<yR1:=*;?(-1)^2+yR1^2=1;>[{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*(-1),yR'=vR()*yR1,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+    randomd('R=="<yR1:=*;><?(-1)^2+yR1^2=1;>[{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*(-1),yR'=vR()*yR1,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+    existsR("0", 'R=="\exists yR1 <?(-1)^2+yR1^2=1;>[{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*(-1),yR'=vR()*yR1,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+    testd('R=="<?(-1)^2+0^2=1;>[{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+    andR('R=="(-1)^2+0^2=1&[{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)"); <(
+      "(-1)^2+0^2=1":
+        auto,
+      "[{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)":
+        composeb('R=="[{xC1:=*;yC1:=*;?xC1^2+yC1^2=1;}t:=0;{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+        composeb('R=="[xC1:=*;yC1:=*;?xC1^2+yC1^2=1;][t:=0;{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+        randomb('R=="[xC1:=*;][yC1:=*;?xC1^2+yC1^2=1;][t:=0;{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+        allR('R=="\forall xC1 [yC1:=*;?xC1^2+yC1^2=1;][t:=0;{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+        composeb('R=="[yC1:=*;?xC1^2+yC1^2=1;][t:=0;{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+        randomb('R=="[yC1:=*;][?xC1^2+yC1^2=1;][t:=0;{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+        allR('R=="\forall yC1 [?xC1^2+yC1^2=1;][t:=0;{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+        testb('R=="[?xC1^2+yC1^2=1;][t:=0;{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+        implyR('R=="xC1^2+yC1^2=1->[t:=0;{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+        composeb('R=="[t:=0;{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+        assignb('R=="[t:=0;][{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+        solve('R=="[{xR'=vR()*(-1),yR'=vR()*0,xC'=vC()*xC1,yC'=vC()*yC1,t'=1&t<=1&xC<=0}](vC()=vR()&vR()=1&xC-xR>=2)");
+        auto
+    ),
+  "Post":
+    auto
+)
+End.
+
+End.
